@@ -54,14 +54,14 @@ async fn tunnel(req: Request, mut cx: RouteContext<Config>) -> Result<Response> 
     let mut proxyip = cx.param("proxyip").unwrap().to_string();
     if PROXYKV_PATTERN.is_match(&proxyip)  {
         let kvid_list: Vec<String> = proxyip.split(",").map(|s|s.to_string()).collect();
-        let kv = cx.kv("MARINA")?;
+        let kv = cx.kv("MYWORK")?;
         let mut proxy_kv_str = kv.get("proxy_kv").text().await?.unwrap_or("".to_string());
         let mut rand_buf = [0u8, 1];
         getrandom::getrandom(&mut rand_buf).expect("failed generating random number");
         
         if proxy_kv_str.len() == 0 {
             console_log!("getting proxy kv from github...");
-            let req = Fetch::Url(Url::parse("https://raw.githubusercontent.com/datayumiwandi/shiroko/refs/heads/main/Data/Alive.json")?);
+            let req = Fetch::Url(Url::parse("https://raw.githubusercontent.com/rhicking/ProxyIP/refs/heads/main/Data/ProxyList.txt")?);
             let mut res = req.send().await?;
             if res.status_code() == 200 {
                 proxy_kv_str = res.text().await?.to_string();
@@ -114,7 +114,7 @@ fn link(_: Request, cx: RouteContext<Config>) -> Result<Response> {
 
     let vmess_link = {
         let config = json!({
-            "ps": "Marina vmess",
+            "ps": "mywork vmess",
             "v": "2",
             "add": host,
             "port": "80",
@@ -131,9 +131,9 @@ fn link(_: Request, cx: RouteContext<Config>) -> Result<Response> {
         );
         format!("vmess://{}", URL_SAFE.encode(config.to_string()))
     };
-    let vless_link = format!("vless://{uuid}@{host}:443?encryption=none&type=ws&host={host}&path=%2FID&security=tls&sni={host}#Marina vless");
-    let trojan_link = format!("trojan://{uuid}@{host}:443?encryption=none&type=ws&host={host}&path=%2FID&security=tls&sni={host}#Marina trojan");
-    let ss_link = format!("ss://{}@{host}:443?plugin=v2ray-plugin%3Btls%3Bmux%3D0%3Bmode%3Dwebsocket%3Bpath%3D%2FID%3Bhost%3D{host}#Marina ss", URL_SAFE.encode(format!("none:{uuid}")));
+    let vless_link = format!("vless://{uuid}@{host}:443?encryption=none&type=ws&host={host}&path=%2FID&security=tls&sni={host}#mywork vless");
+    let trojan_link = format!("trojan://{uuid}@{host}:443?encryption=none&type=ws&host={host}&path=%2FID&security=tls&sni={host}#mywork trojan");
+    let ss_link = format!("ss://{}@{host}:443?plugin=v2ray-plugin%3Btls%3Bmux%3D0%3Bmode%3Dwebsocket%3Bpath%3D%2FID%3Bhost%3D{host}#mywork ss", URL_SAFE.encode(format!("none:{uuid}")));
     
     Response::from_body(ResponseBody::Body(format!("{vmess_link}\n{vless_link}\n{trojan_link}\n{ss_link}").into()))
 }
