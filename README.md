@@ -1,8 +1,8 @@
-# Siren
+# mywork
 
 **A Serverless V2Ray Tunnel Optimized for Indonesia**
 
-We are cloning a public repository by using its URL [FoolVPN-ID Siren](https://github.com/FoolVPN-ID/Siren)
+We are cloning a public repository by using its URL [rhicking mywork](https://github.com/rhicking/mywork)
 Siren is a lightweight and serverless V2Ray tunnel built on [Cloudflare Workers](https://workers.cloudflare.com/), supporting modern proxy protocols.  
 It offers fast, secure, and scalable deployment without the need for a traditional VPS.
 
@@ -41,14 +41,14 @@ Siren can be deployed seamlessly using GitHub Actions with Cloudflare Workers.
 1. **Create a KV Namespace**
 
    - Go to Cloudflare Dashboard → Workers → KV.
-   - Create a new namespace named `SIREN`.
+   - Create a new namespace named `MYWORK`.
 
 2. **Configure `wrangler.toml`**
 
    - Add the KV namespace to your config file:
      ```toml
      [[kv_namespaces]]
-     binding = "SIREN"
+     binding = "MYWORK"
      id = "YOUR_KV_NAMESPACE_ID"
      ```
 
