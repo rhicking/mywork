@@ -524,7 +524,7 @@
                   id="proxy-url"
                   class="flex-1 px-4 py-2.5 input rounded-l-lg text-sm"
                   placeholder="Enter custom proxy list URL"
-                  value="https://raw.githubusercontent.com/MarinaAqua/ProxyIP/refs/heads/main/Alive.txt"
+                  value="https://raw.githubusercontent.com/MarinaAqua/ProxyIP/refs/heads/main/ProxyList.txt"
                 />
                 <button
                   id="load-custom-url"
@@ -1156,7 +1156,7 @@
                       type="hidden"
                       id="trojan-sni"
                       name="sni"
-                      value="marinaaqua366.worker.dev"
+                      value="your.domain.com"
                     />
                   </div>
 
@@ -1432,7 +1432,7 @@
 
             <div class="flex gap-4">
               <a
-                href="https://github.com/"
+                href="https://github.com/rhicking/mywork"
                 class="w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:bg-slate-700 transition-all"
               >
                 <i class="fab fa-github"></i>
@@ -1463,7 +1463,7 @@
           ></div>
 
           <div class="rainbow-text">CLUB GRATIS</div>
-     <div class="neon-box"><a href="https://t.me/club_gratis1" class="text-muted text-cyan-400">
+     <div class="neon-box"><a href="https://t.me/club_gratis" class="text-muted text-cyan-400">
                                         Copyright</a> ©2015-2025 <a class="italic text-blue-400">Term</a></div>
         </div>
       </footer>
@@ -1500,8 +1500,8 @@
       let filteredProxyList = [];
       let selectedProxy = null;
       const defaultProxyUrl =
-        "https://raw.githubusercontent.com/MarinaAqua/ProxyIP/refs/heads/main/Alive.txt";
-      const serverDomains = ["your.domain.com"];
+        "https://raw.githubusercontent.com/MarinaAqua/ProxyIP/refs/heads/main/ProxyList.txt";
+      const serverDomains = ["your.domain1.com", "your.domain2.com"];
       let selectedServerDomain = serverDomains[0]; // Default to first domain
       const defaultUUID = "ade2beba5-face-45a1-baec-5ebaeebaee9a";
       const itemsPerPage = 10;
@@ -2262,7 +2262,7 @@
       // Function to check proxy status in the list
       function checkProxyStatusInList(proxy, statusBadge) {
         //Api Check Healt
-        const statusURL = `https://api.clubgratis.dpdns.org/api/check?ip=${proxy.ip}:${proxy.port}`;
+        const statusURL = `https://api.0ri.dpdns.org/api/check?ip=${proxy.ip}:${proxy.port}`;
 
         fetch(statusURL)
           .then((response) => response.json())
