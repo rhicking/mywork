@@ -28,7 +28,7 @@ It offers fast, secure, and scalable deployment without the need for a tradition
 | -------- | --------------------------------- |
 | `/`      | Main landing page                 |
 | `/link`  | Generate shareable proxy links    |
-| `/sub`   | Subscription endpoint for clients |
+| `/sublink`   | Subscription endpoint for clients |
 
 ---
 
