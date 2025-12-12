@@ -1,4 +1,4 @@
-name = "marina"
+name = "mywork"
 main = "build/worker/shim.mjs"
 compatibility_date = "2024-05-23"
 minify = true
@@ -7,7 +7,7 @@ account_id = "999909cd6e8a95c0879a1b0dc43a25b6"
 workers_dev = true
 
 [[kv_namespaces]]
-binding = "MARINA"
+binding = "MYWORK"
 id = "d5100b144fd54cdf8217952e0c930650"
 
 [build]
@@ -18,5 +18,5 @@ build = { command = "cargo install worker-build && worker-build --dev" }
 
 [vars]
 UUID = "ade2beba5-face-45a1-baec-5ebaeebaee9a"
-MAIN_PAGE_URL = "https://raw.githubusercontent.com/rhicking/Marina/refs/heads/main/web/index.html"
-SUBLINK_PAGE_URL = "https://raw.githubusercontent.com/rhicking/Marina/refs/heads/main/web/sublink.html"
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/rhicking/mywork/refs/heads/main/web/index.html"
+SUBLINK_PAGE_URL = "https://raw.githubusercontent.com/rhicking/mywork/refs/heads/main/web/sublink.html"
